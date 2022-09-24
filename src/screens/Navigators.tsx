@@ -1,26 +1,26 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HistoryScreen from './History';
+import DictionaryScreen from './Dictionary';
 import TestingScreen from './Testing';
 import SettingsScreen from './Settings';
 import WordScreen from './Word';
 import CheckScreen from './Check';
 import { NavigatorScreenParams } from '@react-navigation/native';
 
-export type HistoryStackParamList = {
-  History: undefined;
+export type DictionaryStackParamList = {
+  Dictionary: undefined;
   Word: undefined;
 };
 
-const HistoryStackNavigator = createNativeStackNavigator<HistoryStackParamList>();
+const DictionaryStackNavigator = createNativeStackNavigator<DictionaryStackParamList>();
 
-export function HistoryStack() {
+export function DictionaryStack() {
   return (
-    <HistoryStackNavigator.Navigator>
-      <HistoryStackNavigator.Screen name="History" component={HistoryScreen} />
-      <HistoryStackNavigator.Screen name="Word" component={WordScreen} />
-    </HistoryStackNavigator.Navigator>
+    <DictionaryStackNavigator.Navigator>
+      <DictionaryStackNavigator.Screen name="Dictionary" component={DictionaryScreen} />
+      <DictionaryStackNavigator.Screen name="Word" component={WordScreen} />
+    </DictionaryStackNavigator.Navigator>
   );
 }
 
@@ -41,7 +41,7 @@ export function TestingStack() {
 }
 
 export type MainTabParamList = {
-  HistoryStack: NavigatorScreenParams<HistoryStackParamList>;
+  DictionaryStack: NavigatorScreenParams<DictionaryStackParamList>;
   TestingStack: NavigatorScreenParams<TestingStackParamList>;
   Settings: undefined;
 };
@@ -51,7 +51,7 @@ const MainTabNavigator = createBottomTabNavigator<MainTabParamList>();
 export function MainTabs() {
   return (
     <MainTabNavigator.Navigator>
-      <MainTabNavigator.Screen name="HistoryStack" component={HistoryStack} />
+      <MainTabNavigator.Screen name="DictionaryStack" component={DictionaryStack} />
       <MainTabNavigator.Screen name="TestingStack" component={TestingStack} />
       <MainTabNavigator.Screen name="Settings" component={SettingsScreen} />
     </MainTabNavigator.Navigator>
